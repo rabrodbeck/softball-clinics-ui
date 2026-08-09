@@ -9,7 +9,7 @@ export interface Event {
     date: string; // ISO 8601 string (ex: "2026-10-04T10:00:00+00:00")
     maxCapacity: number;
     registeredCount: number;
-    remainingSport: number;
+    remainingSpots: number;
     isFull: boolean;
     isPast: boolean;
 }
