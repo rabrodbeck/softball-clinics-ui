@@ -91,7 +91,9 @@ export const ClinicCard: React.FC<ClinicCardProps> = ({
 
         {/* Title & Description */}
         <h3 className="card-title">{event.title}</h3>
-        <p className="card-description">{event.description}</p>
+        <p className="card-description" title={event.description}>
+          {event.description}
+        </p>
 
         {/* Date & Time Metadata */}
         <div className="card-meta">
