@@ -29,13 +29,9 @@ export const EventFormModal: React.FC<EventFormModalProps> = ({
   // Helper to format ISO date string to datetime-local input value (YYYY-MM-DDTHH:MM)
   const formatForDateTimeInput = (isoString?: string) => {
     if (!isoString) {
-      const now = new Date();
-      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-      return now.toISOString().slice(0, 16);
+      return new Date().toISOString().slice(0, 16);
     }
-    const d = new Date(isoString);
-    d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-    return d.toISOString().slice(0, 16);
+    return isoString.slice(0, 16);
   };
 
   useEffect(() => {
@@ -78,7 +74,7 @@ export const EventFormModal: React.FC<EventFormModalProps> = ({
     }
 
     setLoading(true);
-    const isoDate = new Date(date).toISOString();
+    const isoDate = `${date}:00Z`;
 
     try {
       if (eventToEdit) {

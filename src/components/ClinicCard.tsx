@@ -21,17 +21,19 @@ export const ClinicCard: React.FC<ClinicCardProps> = ({
   onEdit,
   onDelete,
 }) => {
-  // Format clinic date and time for clean display
+  // Format clinic date and time for clean display (using UTC to preserve exact scheduled hour)
   const eventDate = new Date(event.date);
   const formattedDate = eventDate.toLocaleDateString('en-US', {
     weekday: 'short',
     month: 'short',
     day: 'numeric',
     year: 'numeric',
+    timeZone: 'UTC',
   });
   const formattedTime = eventDate.toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: '2-digit',
+    timeZone: 'UTC',
   });
 
   // Extract division badge (8u, 10u, 12u, 14u) from title
